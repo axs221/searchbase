@@ -1,0 +1,57 @@
+<style>
+.sample-app-content {
+  font-family: Verdana;
+}
+.sample-app-content h1 {
+  color: #999999;
+  font-size: 3em;
+}
+.sample-app-content h2 {
+  color: #990000;
+  font-size: 2em;
+}
+.sample-app-content p {
+  padding: 30px;
+}
+.sample-app-content li,
+.sample-app-content p {
+  font-size: 1.2em;
+}
+.sample-app-content li {
+  font-family: Consolas;
+}
+.sample-app-content input,
+.sample-app-content button {
+  padding: 5px;
+  font-size: 1em;
+  outline: none;
+}
+#myFrame {
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  height: 400px;
+  width: 65%;
+  margin: 20px;
+}
+</style>
+
+<section class="sample-app-content">
+  <h1>SearchBase</h1>
+
+  <div>
+    <label>Search</label>
+    <input #searchterms type="text">
+    <button (click)="search(searchterms.value)">go</button>
+  </div>
+
+  <div id="notes-container">
+    <label for="Notes">Notes</label>
+    <textarea #note rows="6" columns="150" type="text" id="Notes"></textarea>
+    <button (click)="saveNote(note.value)">save</button>
+  </div>
+
+  <!-- <iframe id="myFrame" scrolling="no" frameborder="0" src="http://searchbase.shawnaxsom.com/search?q={{searchTerm}}"></iframe> -->
+  <iframe id="myFrame" scrolling="no" frameborder="0" [src]="detailFrame"></iframe>
+  
+</section>
